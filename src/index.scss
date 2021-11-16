@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Maison Neue';
+  font-weight: bold;
+  src: url('https://dtrav-dev.s3.ap-southeast-1.amazonaws.com/fonts/Maison-Neue/MaisonNeue-Bold.otf');
+}
+@font-face {
+  font-family: 'Maison Neue';
+  font-weight: normal;
+  src: url('https://dtrav-dev.s3.ap-southeast-1.amazonaws.com/fonts/Maison-Neue/MaisonNeue-Book.otf');
+}
+// for new design
+@font-face {
+  font-family: 'Monument Extended;';
+  font-weight: normal;
+  src: url('https://static.dtravel.com/fonts/Monument-Extended/MonumentExtended-Regular.otf');
+}
+@font-face {
+  font-family: 'Monument Extended;';
+  font-weight: bold;
+  src: url('https://static.dtravel.com/fonts/Monument-Extended/MonumentExtended-Bold.otf');
+}
+
+.App {
+  margin: auto;
+  max-width: 1140px;
+}
