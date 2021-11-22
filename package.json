@@ -1,12 +1,14 @@
 {
   "name": "dtravel-ui",
   "version": "0.1.0",
-  "private": false,
-  "module": "dist/index.js",
+  "private": true,
   "files": [ "dist", "README.md" ],
+  "keywords": ["react", "components", "ui"],
+  "main": "dist/index.ts",
+  "module": "dist/index.ts",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:dTravel/dtravel-ui.git"
+    "url": "git+https://github.com/dTravel/dtravel-ui.git"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
