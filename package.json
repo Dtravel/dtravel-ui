@@ -1,18 +1,18 @@
 {
   "name": "dui-1",
-  "version": "0.1.4",
+  "version": "0.2.4",
   "license": "MIT",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "dependencies": {
     "-": "^0.0.1",
-    "D": "^1.0.0",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "typescript": "^4.5.2"
   },
   "devDependencies": {
@@ -28,12 +28,16 @@
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.3.12",
     "babel-loader": "^8.2.3",
-    "css-loader": "^6.5.1",
+    "css-loader": "^5.2.7",
     "fork-ts-checker-webpack-plugin": "^6.5.0",
     "glob": "^7.2.0",
-    "style-loader": "^3.3.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "sass": "^1.44.0",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
     "ts-loader": "^9.2.6",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1"
@@ -41,7 +45,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "tsc -m es6 --outDir lib-types && NODE_ENV=development webpack"
+    "build": "tsc -m es6 --outDir dist-types && NODE_ENV=production webpack"
   },
   "browserslist": [
     ">0.2%",

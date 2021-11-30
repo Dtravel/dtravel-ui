@@ -1,5 +1,6 @@
 const path = require("path");
-const glob = require("glob");
+// const glob = require("glob");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
@@ -51,8 +52,27 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        // test: /\.css$/i,
+        // test: /\.(s)?css$/,
+        test: /\.s[ac]ss$/i,
+        use: [
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     publicPath: "/public/path/to/",
+          //   },
+          // },
+          "style-loader",
+          "css-loader",
+          // "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              // Prefer `dart-sass`
+              implementation: require("sass"),
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|js)x?$/,
@@ -63,16 +83,19 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ForkTsCheckerWebpackPlugin()],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin(),
+    // new MiniCssExtractPlugin()
+  ],
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
   },
   output: {
-    path: path.resolve(__dirname, "lib"),
+    path: path.resolve(__dirname, "dist"),
     filename: "index.js",
     clean: true,
     library: {
-      name: "lib",
+      name: "dtravel-ui",
       type: "umd",
     },
   },
