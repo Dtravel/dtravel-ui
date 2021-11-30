@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
-import styles from './Button.module.scss'
 // import './Button.scss'
-// import './Button.css'
+import './Button.css'
 
 import classnames from 'classnames'
 
@@ -58,9 +57,9 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       style={style ? { ...style } : {}}
-      // @ts-ignore
-      className={`${styles.button} ${styles[type]} ${styles[size]}`}
-      // className={classnames(renderCls())}
+      // // @ts-ignore
+      // className={`${styles.button} ${styles[type]} ${styles[size]}`}
+      className={classnames(renderCls())}
       disabled={disabled}
     >
       {children || label}
