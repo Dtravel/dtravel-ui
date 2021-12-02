@@ -30,7 +30,7 @@ pipeline {
 
             }
         }
-
+        }
         stage('Build Docker') {
             steps {
                 echo '=========== \033[0;31mBuild Docker\033[0m Stage Start =============='
@@ -79,7 +79,6 @@ pipeline {
                 echo '=========== \033[0;31mUpdate staging\033[0m Stage End =============='
             }
         }
-    }
     }
 
     post {
