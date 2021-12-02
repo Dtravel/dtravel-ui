@@ -1,32 +1,26 @@
-import React, { ReactNode } from "react";
-import "./Button.scss";
-import { FaSpinner } from "react-icons/fa";
+import React, { ReactNode } from 'react'
+import './Button.scss'
+import { FaSpinner } from 'react-icons/fa'
+import classnames from 'classnames'
 
-import classnames from "classnames";
+export type ButtonType = 'primary' | 'secondary' | 'outline' | 'danger' | 'text'
 
-export type ButtonType =
-  | "primary"
-  | "secondary"
-  | "outline"
-  | "danger"
-  | "text";
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
-export type ButtonSize = "sm" | "md" | "lg" | "xl" | "xxl";
+export const DEFAULT_TYPE = 'primary'
 
-export const DEFAULT_TYPE = "primary";
-
-export const DEFAULT_SIZE = "lg";
+export const DEFAULT_SIZE = 'lg'
 
 export interface ButtonProps {
-  children?: ReactNode;
-  label?: string;
-  type?: ButtonType;
-  size?: ButtonSize;
-  htmlType?: "button" | "submit";
-  loading?: boolean;
-  style?: any;
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  children?: ReactNode
+  label?: string
+  type?: ButtonType
+  size?: ButtonSize
+  htmlType?: 'button' | 'submit'
+  loading?: boolean
+  style?: any
+  disabled?: boolean
+  onClick?: React.MouseEventHandler<HTMLElement>
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -35,57 +29,50 @@ export const Button: React.FC<ButtonProps> = ({
   type = DEFAULT_TYPE,
   size = DEFAULT_SIZE,
   disabled = false,
-  htmlType = "button",
+  htmlType = 'button',
   loading = false,
   style = {},
   ...props
 }) => {
-  console.log(type);
   const renderCls = () => {
-    const typeCls = [
-      "primary",
-      "secondary",
-      "outline",
-      "danger",
-      "text",
-    ].reduce(
+    const typeCls = ['primary', 'secondary', 'outline', 'danger', 'text'].reduce(
       (acc, item) => ({
         ...acc,
         [item]: (!type && item === DEFAULT_TYPE) || item === type,
       }),
       {}
-    );
-    const sizeCls = ["sm", "md", "lg", "xl", "xxl"].reduce(
+    )
+    const sizeCls = ['sm', 'md', 'lg', 'xl', 'xxl'].reduce(
       (acc, item) => ({
         ...acc,
         [item]: (!size && item === DEFAULT_SIZE) || item === size,
       }),
       {}
-    );
+    )
 
-    return classnames("btn", {
+    return classnames('btn', {
       ...typeCls,
       ...sizeCls,
-    });
-  };
+    })
+  }
 
   return (
     <button
       style={style ? { ...style } : {}}
       type={htmlType}
-      className={classnames(renderCls())}
+      className={renderCls()}
       disabled={disabled || loading}
       {...props}
     >
-      {children || label}{" "}
+      {children || label}{' '}
       {loading ? (
         <>
           &nbsp;
-          <FaSpinner className={"spinner"} />
+          <FaSpinner className={'spinner'} />
         </>
       ) : (
-        ""
+        ''
       )}
     </button>
-  );
-};
+  )
+}

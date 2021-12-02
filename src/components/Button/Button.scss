@@ -1,3 +1,4 @@
+@import "../../asset/styles/variables";
 .btn {
   border-radius: 16px;
   cursor: pointer;
@@ -13,30 +14,33 @@
   box-sizing: border-box;
   // type
   &.primary {
-    background: #000000;
-    color: #FFFFFF;
+    background: $blackBrand;
+    color: $whiteBrand;
     &:hover {
-      background: #4F4F4F
+      background: $blackStep7
     }
     &:disabled {
-      background: #CFCFCF;
-      border: 1px solid #CFCFCF;
+      background: $blackStep2;
+      border: 1px solid $blackStep2;
       cursor: not-allowed;
     }
   }
   &.secondary {
-    background: #FFFFFF;
-    color: #000000;
+    background: $whiteBrand;
+    color: $blackBrand;
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
     &:disabled {
       background: rgba(255, 255, 255, 0.5);
-      border: 1px solid #CFCFCF;
+      border: 1px solid $blackStep2;
       cursor: not-allowed;
     }
   }
   &.danger {
     background: #EB1D26;
     border: 1px solid #EB1D26;
-    color: #FFFFFF;
+    color: $whiteBrand;
     &:hover {
       background: #BB1118;
       border: 1px solid #BB1118;
@@ -49,12 +53,20 @@
   }
   &.outline {
     background: #EBEBEB;
-    border: 1px solid #000000;
+    border: 1px solid $blackBrand;
     box-sizing: border-box;
     &:disabled {
       //background: #F8ABAE;
-      border: 1px solid #CFCFCF;
+      border: 1px solid $blackStep2;
       cursor: not-allowed;
+    }
+  }
+
+  &.text {
+    background: none;
+    border: none;
+    &:hover {
+      background: $blackStep1;
     }
   }
 

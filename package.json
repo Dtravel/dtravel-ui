@@ -1,6 +1,6 @@
 {
   "name": "dui-1",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -30,6 +30,7 @@
     "@storybook/addon-links": "^6.3.12",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.3.12",
+    "@typescript-eslint/parser": "^5.5.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^5.2.7",
     "fork-ts-checker-webpack-plugin": "^6.5.0",

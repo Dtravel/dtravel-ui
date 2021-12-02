@@ -5,18 +5,5 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-scss",
     // "storybook-css-modules-preset",
-    // {
-    //   name: "@storybook/preset-scss",
-    //   options: {
-    //     cssLoaderOptions: {
-    //       url: true,
-    //       modules: true,
-    //       localIdentName: "[name]__[local]--[hash:base64:5]",
-    //       // modules: {
-    //       //   localIdentName: "[name]__[local]___[hash:base64:5]",
-    //       // },
-    //     },
-    //   },
-    // },
   ],
 };
