@@ -80,11 +80,11 @@ pipeline {
             }
         }
     }
+    }
 
     post {
         always {
             echo 'DONE !'
         }
     }
-}
 }
