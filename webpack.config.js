@@ -1,12 +1,12 @@
-const path = require("path");
+const path = require('path')
 // const glob = require("glob");
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = {
-  mode: "development",
+  mode: 'production',
   entry: {
-    index: "./src/index.ts",
+    index: './src/index.ts',
   },
   module: {
     rules: [
@@ -15,40 +15,37 @@ module.exports = {
         // test: /\.tsx?$/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               cacheDirectory: true,
               presets: [
-                ["@babel/preset-env", { targets: { node: "8" }, loose: false }],
+                ['@babel/preset-env', { targets: { node: '8' }, loose: false }],
                 // [
                 //   "@babel/preset-typescript",
                 //   {isTSX: true, allExtensions: true, allowDeclareFields: true}
                 // ],
                 [
-                  "@babel/preset-react",
+                  '@babel/preset-react',
                   {
-                    pragma: "dom", // default pragma is React.createElement (only in classic runtime)
-                    pragmaFrag: "DomFrag", // default is React.Fragment (only in classic runtime)
+                    pragma: 'dom', // default pragma is React.createElement (only in classic runtime)
+                    pragmaFrag: 'DomFrag', // default is React.Fragment (only in classic runtime)
                     throwIfNamespace: false, // defaults to true
-                    runtime: "classic", // defaults to classic
+                    runtime: 'classic', // defaults to classic
                     // "importSource": "custom-jsx-library" // defaults to react (only in automatic runtime)
                   },
                 ],
-                ["@babel/preset-flow"],
+                ['@babel/preset-flow'],
               ],
               plugins: [
-                "@babel/plugin-proposal-class-properties",
-                "@babel/plugin-proposal-private-methods",
-                [
-                  "@babel/plugin-proposal-private-property-in-object",
-                  { loose: false },
-                ],
+                '@babel/plugin-proposal-class-properties',
+                '@babel/plugin-proposal-private-methods',
+                ['@babel/plugin-proposal-private-property-in-object', { loose: false }],
               ],
             },
           },
         ],
 
-        include: [path.resolve(__dirname, "src")],
+        include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/,
       },
       {
@@ -62,21 +59,21 @@ module.exports = {
           //     publicPath: "/public/path/to/",
           //   },
           // },
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
           // "sass-loader",
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               // Prefer `dart-sass`
-              implementation: require("sass"),
+              implementation: require('sass'),
             },
           },
         ],
       },
       {
         test: /\.(ts|js)x?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         options: {
           transpileOnly: true,
         },
@@ -88,19 +85,19 @@ module.exports = {
     // new MiniCssExtractPlugin()
   ],
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "index.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
     clean: true,
     library: {
-      name: "dtravel-ui",
-      type: "umd",
+      name: 'dtravel-ui',
+      type: 'umd',
     },
   },
-  // externals: [
-  //   // Everything that starts with "library/"
-  //   /^library\/.+$/,
-  // ],
-};
+  externals: {
+    react: 'commonjs2 react',
+    'react-dom': 'commonjs2 react-dom',
+  },
+}

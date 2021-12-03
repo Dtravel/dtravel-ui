@@ -7,7 +7,7 @@ export interface InputProps {
   size?: 'default' | 'small'
   label?: string
   value?: string
-  onChange?: (event: React.FormEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   addonBefore?: {
     value: string
     separate: boolean
@@ -43,10 +43,10 @@ export const Input: React.FC<InputProps> = ({
     placeholder,
   }
   if (value) {
-    props.value = value
+    props.value = value || ''
   }
   if (typeof onChange === 'function') {
-    props.onChange = (event: React.FormEvent<HTMLInputElement>) => onChange(event)
+    props.onChange = (event: React.ChangeEvent<HTMLInputElement>) => onChange(event)
   }
   if (maxLength) {
     props.maxLength = maxLength
