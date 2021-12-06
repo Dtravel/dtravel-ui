@@ -5,7 +5,7 @@ WORKDIR /dockerbook
 RUN npm install -g --force npx 
 
 # RUN ls -al .
-RUN npm install graceful-fs --save-dev
+RUN npm i --save-dev html-webpack-plugin@next
 RUN npm install
 RUN npm run build-storybook
 # COPY storybook-static .
