@@ -1,0 +1,36 @@
+.notes {
+  //margin-bottom: 16px;
+  padding: 16px;
+  //border-bottom: 1px solid green;
+}
+
+.icon-list{
+  display: grid;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-columns: auto auto auto auto;
+  padding-bottom: 32px;
+  .icon-item {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid grey;
+    padding: 16px;
+    &:hover {
+      background: #BCDBDF;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 4px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //&:hover {
+      //  background: #FFFFFF;
+      //}
+    }
+    .icon-name {
+      width: 100%;
+    }
+  }
+}
