@@ -1,8 +1,9 @@
-FROM node:10.24.1-stretch-slim
+FROM node:12.22.7-stretch
 RUN mkdir /dockerbook
 COPY ./ /dockerbook
 WORKDIR /dockerbook
 RUN npm install -g --force npx 
+RUN npm install http-server --save
 
 # RUN ls -al .
 RUN npm install
