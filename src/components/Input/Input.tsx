@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, ReactNode } from 'react'
 import './Input.scss'
 import classnames from 'classnames'
 
@@ -7,13 +7,21 @@ export interface InputProps {
   size?: 'default' | 'small'
   label?: string
   value?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  prefix?: ReactNode
+  suffix?: ReactNode
   addonBefore?: {
-    value: string
-    separate: boolean
+    value: string | ReactNode
+    separate?: boolean
+    style?: any
+  }
+  addonAfter?: {
+    value: string | ReactNode
+    separate?: boolean
+    style?: any
   }
   width?: string | number
   maxLength?: number
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -22,9 +30,12 @@ export const Input: React.FC<InputProps> = ({
   value = '',
   onChange,
   size = 'default',
-  addonBefore,
   width,
   maxLength,
+  prefix,
+  suffix,
+  addonBefore,
+  addonAfter,
 }) => {
   const inputRef: any = useRef(null)
   const renderClass = (cls: string) => {
@@ -55,14 +66,31 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className={renderClass('d-input-group')} style={width ? { width } : {}} onClick={onClick}>
       {addonBefore && (
-        <span className={classnames(renderClass('d-input-addonBefore'), { separate: addonBefore.separate })}>
-          {addonBefore.value}
-        </span>
+        <div
+          style={addonBefore.style ? { ...addonBefore.style } : {}}
+          className={classnames(renderClass('d-input-addonBefore-wrapper'), { separate: addonBefore.separate })}
+        >
+          <span className={classnames(renderClass('d-input-addonBefore'))}>{addonBefore.value}</span>
+        </div>
       )}
+
+      {prefix && <span className={classnames(renderClass('d-input-prefix'))}>{prefix}</span>}
+
       <div className={'d-input-wrapper'}>
         <span className={'d-input-label'}>{label}</span>
         <input ref={inputRef} className={renderClass('d-input')} placeholder={placeholder} {...props} />
       </div>
+
+      {suffix && <span className={classnames(renderClass('d-input-suffix'))}>{suffix}</span>}
+
+      {addonAfter && (
+        <div
+          style={addonAfter.style ? { ...addonAfter.style } : {}}
+          className={classnames(renderClass('d-input-addonAfter-wrapper'), { separate: addonAfter.separate })}
+        >
+          <span className={classnames(renderClass('d-input-addonAfter'))}>{addonAfter.value}</span>
+        </div>
+      )}
     </div>
   )
 }

@@ -21,6 +21,7 @@ export interface ButtonProps {
   style?: any
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLElement>
+  icon?: React.ReactNode
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -32,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
   htmlType = 'button',
   loading = false,
   style = {},
+  icon,
   ...props
 }) => {
   const renderCls = () => {
@@ -64,6 +66,7 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
       {...props}
     >
+      {icon && <span className={'btn-icon'}>{icon}</span>}
       {children || label}{' '}
       {loading ? (
         <>

@@ -23,13 +23,14 @@
   color: #000000;
   width: 100%;
   height: 58px;
-  padding: 19px 13px;
+  //padding: 19px 13px;
+  //padding: 0 13px;
   &.has-label {
-    padding: 9px 12px;
+    //padding: 9px 12px;
   }
   &.small {
     height: 46px;
-    padding: 13px;
+    //padding: 13px;
   }
   &:focus,
   &:hover {
@@ -37,23 +38,10 @@
     border-color: #000000;
   }
 
-  .d-input-addonBefore {
-    margin-right: 12px;
-    padding: 19px 12px 19px 0;
-    &.separate {
-      border-right: 1px solid #dedede;
-    }
-    &.small {
-      padding: 12px 12px 12px 0;
-    }
-    &:focus,
-    &:hover {
-      border-color: #000000;
-    }
-  }
-
   .d-input-wrapper {
     width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
     .d-input-label {
       font-size: 12px;
       line-height: 16px;
@@ -69,5 +57,50 @@
         color: #949494;
       }
     }
+  }
+
+  .d-input-addonBefore-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 13px 0 12px;
+    &.separate {
+      border-right: 1px solid #dedede;
+    }
+    &:focus,
+    &:hover {
+      border-color: #000000;
+    }
+    .d-input-addonBefore {
+
+    }
+  }
+
+  .d-input-addonAfter-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 12px 0 13px;
+    &.separate {
+      border-left: 1px solid #dedede;
+    }
+    &:focus,
+    &:hover {
+      border-color: #000000;
+    }
+    .d-input-addonAfter {
+
+    }
+  }
+
+  .d-input-prefix {
+    display: flex;
+    align-items: center;
+    padding-left: 13px;
+  }
+  .d-input-suffix {
+    display: flex;
+    align-items: center;
+    padding-right: 13px;
   }
 }

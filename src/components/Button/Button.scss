@@ -12,6 +12,10 @@
   justify-content: center;
   border: none;
   box-sizing: border-box;
+
+  .btn-icon {
+    margin-right: 8px;
+  }
   // type
   &.primary {
     background: $blackBrand;
