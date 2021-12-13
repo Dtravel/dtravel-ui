@@ -3,6 +3,7 @@ import './Input.scss'
 import classnames from 'classnames'
 
 export interface InputProps {
+  type?: 'text' | 'password'
   placeholder?: string
   size?: 'default' | 'small'
   label?: string
@@ -25,6 +26,7 @@ export interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({
+  type = 'text',
   placeholder = '',
   label = '',
   value = '',
@@ -78,7 +80,13 @@ export const Input: React.FC<InputProps> = ({
 
       <div className={'d-input-wrapper'}>
         <span className={'d-input-label'}>{label}</span>
-        <input ref={inputRef} className={renderClass('d-input')} placeholder={placeholder} {...props} />
+        <input
+          ref={inputRef}
+          className={renderClass('d-input')}
+          placeholder={placeholder}
+          type={type || 'text'}
+          {...props}
+        />
       </div>
 
       {suffix && <span className={classnames(renderClass('d-input-suffix'))}>{suffix}</span>}

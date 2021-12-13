@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
-import { Input } from '../components/Input'
+import { Input, Password } from '../components/Input'
 import type { InputProps } from '../components/Input'
-import { IconEnvelope, IconSearch, IconUser } from '../components/Icon'
+import { IconEnvelope, IconEye, IconSearch, IconUser } from '../components/Icon'
 import IconUsers from '../components/Icon/icons/IconUsers'
 import { Button } from '../components/Button'
 
@@ -21,6 +21,7 @@ export default {
 } as Meta<typeof Input>
 
 const Template: Story<InputProps> = (args) => <Input {...args} />
+const PasswordTemplate: Story<InputProps> = (args) => <Password {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -38,6 +39,17 @@ WithUserIconPrefix.args = {
   placeholder: 'placeholder small size',
   prefix: <IconUser />,
   size: 'small',
+}
+
+export const PasswordExampleSuffix = PasswordTemplate.bind({})
+PasswordExampleSuffix.args = {
+  placeholder: 'Please enter password',
+}
+
+export const PasswordExampleSuffixHasLabel = PasswordTemplate.bind({})
+PasswordExampleSuffixHasLabel.args = {
+  placeholder: 'Please enter password',
+  label: 'Password',
 }
 
 export const PriceExample = Template.bind({})

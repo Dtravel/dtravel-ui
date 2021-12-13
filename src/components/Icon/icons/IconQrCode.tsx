@@ -1,9 +1,9 @@
 import React from 'react'
 import { IconProps } from './types'
 
-const IconQrCode: React.FC<IconProps> = ({ width = 18, height = 17, color = 'none' }) => {
+const IconQrCode: React.FC<IconProps> = ({ width = 18, height = 17 }) => {
   return (
-    <svg width={width} height={height} viewBox="0 0 18 17" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1.33301 13.3777V14.898C1.33301 15.1027 1.40325 15.2991 1.52827 15.4439C1.65329 15.5887 1.82286 15.6701 1.99967 15.6701H3.31234"
         stroke="black"

@@ -66,5 +66,5 @@ export const WithIcon = Template.bind({})
 WithIcon.args = {
   label: 'Button with icon',
   type: 'secondary',
-  icon: <IconPlus color={'#cd1b1b'} />,
+  icon: <IconPlus />,
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { IconProps } from './types'
 
-const IconWifi: React.FC<IconProps> = ({ width = 16, height = 16, color = 'none' }) => {
+const IconWifi: React.FC<IconProps> = ({ width = 16, height = 16 }) => {
   return (
-    <svg width={width} height={height} viewBox="0 0 16 16" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M3.33398 8.36668C4.65169 7.26912 6.31239 6.66809 8.02732 6.66809C9.74225 6.66809 11.4029 7.26912 12.7207 8.36668"
         stroke="black"

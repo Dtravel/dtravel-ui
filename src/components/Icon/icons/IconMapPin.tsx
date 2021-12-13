@@ -1,9 +1,9 @@
 import React from 'react'
 import { IconProps } from './types'
 
-const IconMapPin: React.FC<IconProps> = ({ width = 16, height = 16, color = 'none' }) => {
+const IconMapPin: React.FC<IconProps> = ({ width = 16, height = 16 }) => {
   return (
-    <svg width={width} height={height} viewBox="0 0 16 18" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M14 7.66663C14 12.3333 8 16.3333 8 16.3333C8 16.3333 2 12.3333 2 7.66663C2 6.07533 2.63214 4.5492 3.75736 3.42399C4.88258 2.29877 6.4087 1.66663 8 1.66663C9.5913 1.66663 11.1174 2.29877 12.2426 3.42399C13.3679 4.5492 14 6.07533 14 7.66663Z"
         stroke="black"
